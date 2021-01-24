@@ -1,15 +1,25 @@
 <div class="container h-100">
   <div class="row h-100 justify-content-center align-items-center">
-    <div class="col-12 text-center mt-5">
-      <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: 'btn btn-lg btn-outline-primary' %>
+    <div class="col-sm-6 col-lg-12 text-center mt-5">
+      <div>
+        <h4 class="text-dark">Balai Perkibulan Chat</h4>
+      </div>
+      <div class="mt-5">
+        <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="btn btn-danger btn-lg">
+          <i class="fab fa-google mr-3"></i>
+          Sign in with Google
+        </a>
+      </div>
+      <footer class="footer mt-5">
+        <div class="container-fluid clearfix footer-text text-muted">
+            <small>
+              Balai Perkibulan v1.0<br/>
+              &copy; 2020&nbsp;-&nbsp;<%= Time.zone.now.strftime('%Y') %> Maikel Chandika<br/>
+              <%= mail_to("mkdika@gmail.com", "mkdika@gmail.com") %><br/>
+              <%= link_to("Repo@GitHub", "https://github.com/mkdika/balai-perkibulan") %>
+            </small>
+        </div>
+      </footer>
     </div>   
-    <div class="mt-5">
-        <p class="footer-text text-center text-muted">
-          <small>
-            Balai Perkibulan<br/>
-            &copy; 2020&nbsp;-&nbsp;<%= Time.zone.now.strftime('%Y') %> Maikel Chandika (mkdika@gmail.com)
-          </small>
-        </p>
-    </div>
   </div>
 </div>

@@ -28,3 +28,30 @@
 <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
   </div>
 </div>
+<br/>
+
+<% if @chats.present? %>
+<ul>
+  <% @chats.each do |c| %>
+  <li>
+    <b><%= c.user.display_name %></b> - <%= c.message %>
+  </li>
+  <% end %>
+</ul>
+<% end %>
+
+<br/>
+<br/>
+<%= form_with(model: @chat, remote: true) do |form| %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="field">
+    <%= form.label :message %>
+    <%= form.text_field :message %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Send" %>
+  </div>
+<% end %>
